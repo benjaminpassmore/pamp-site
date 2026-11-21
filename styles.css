@@ -135,10 +135,18 @@ section {
   padding: 40px 0;
 }
 
+/* One column on phones, two by two from tablets up: four cards, never one
+   left on its own. */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .card {
