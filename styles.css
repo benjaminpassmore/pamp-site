@@ -1,0 +1,236 @@
+/*
+ * Pamp's public site. Plain CSS, no build step, no web fonts, no trackers.
+ * Colours match the app (apps/mobile/src/lib/theme.ts). They are provisional
+ * until the brand file arrives, like the app's.
+ */
+
+:root {
+  --brand: #e8232a;
+  --brand-soft: #fdeeee;
+  --ink: #15171c;
+  --muted: #5b6370;
+  --surface: #f4f5f7;
+  --border: #e3e6eb;
+  --background: #ffffff;
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  /* A shade darker than the brand red, for enough contrast on white. */
+  color: #c41a20;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header.site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.wordmark {
+  color: var(--brand);
+  font-size: 28px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+nav.site a {
+  margin-left: 20px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.hero {
+  padding: 48px 0 56px;
+}
+
+h1 {
+  font-size: clamp(36px, 7vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin: 0 0 20px;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.lead {
+  font-size: 21px;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 0 32px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--ink);
+  color: #ffffff;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button:focus-visible {
+  border-radius: 999px;
+}
+
+.button:hover {
+  background: #3a322f;
+  color: #ffffff;
+}
+
+.small {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+section {
+  padding: 40px 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.note {
+  background: var(--brand-soft);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.draft {
+  background: var(--brand-soft);
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 8px 0 32px;
+  font-weight: 600;
+}
+
+.tbc {
+  background: #fff4cc;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.legal h2 {
+  font-size: 22px;
+  margin-top: 32px;
+}
+
+.legal ul {
+  padding-left: 22px;
+}
+
+footer.site {
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+  padding: 24px 0 48px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+footer.site a {
+  color: var(--muted);
+  margin-right: 16px;
+}
+
+/* The waitlist form: one field and the button, no scripts. */
+.waitlist label {
+  display: block;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.waitlist-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.waitlist input[type="email"] {
+  flex: 1 1 240px;
+  font: inherit;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.waitlist button {
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Out of sight and out of reach for people; only bots fill it in. */
+.trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
